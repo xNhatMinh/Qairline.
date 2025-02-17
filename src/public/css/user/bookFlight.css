@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --primary-color: #0376c1;
+  --primary-color-dark: #002954;
+  --text-dark: #12110f;
+  --text-light: #6b7280;
+  --extra-light: #fbf7f6;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --header-font: "Merriweather", serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+.master {
+  min-height: 100vh;
+  background: url(/images/dashboard.jpg) center / cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Khoảng cách giữa các container */
+}
+
+.container {
+  position: relative;
+  width: 45vw;
+  height: 77vh;
+  background: #fff;
+  padding: 25px;
+  border-radius: 0.8rem;
+  box-shadow: 0 0.4rem 0.8rem #0005;
+  backdrop-filter: blur(7px);
+  overflow: auto;
+}
+.container header {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+}
+.container .form {
+  margin-top: 30px;
+}
+.form .input-box {
+  width: 100%;
+  margin-top: 20px;
+}
+.input-box label {
+  color: #333;
+}
+.form :where(.input-box input, .select-box) {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 15px;
+}
+.form .column {
+  display: flex;
+  column-gap: 15px;
+}
+.form :where(.seat-option, .seat) {
+  display: flex;
+  align-items: center;
+  column-gap: 37%;
+  flex-wrap: wrap;
+}
+.form .seat {
+  column-gap: 5px;
+}
+.seat input {
+  accent-color: rgb(130, 106, 251);
+}
+.form :where(.seat input, .seat label) {
+  cursor: pointer;
+}
+.seat label {
+  color: #707070;
+}
+.address :where(input, .select-box) {
+  margin-top: 15px;
+}
+.select-box select {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #707070;
+  font-size: 1rem;
+}
+
+.column .input-box #business,
+#economy {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 50%;
+}
+
+.form button {
+  height: 50px;
+  width: 50%;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 20px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--primary-color);
+  margin-left: 25%;
+}
+.form button:hover {
+  background-color: var(--primary-color-dark);
+  transform: scale(1.05);
+  background: var(--primary-color-dark);
+}
+
+.container::-webkit-scrollbar {
+  width: 0.0001rem;
+  height: 0.5rem;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+}
+
+/*Responsive*/
+@media screen and (max-width: 500px) {
+  .form .column {
+    flex-wrap: wrap;
+  }
+  .form :where(.seat-option, .seat) {
+    row-gap: 15px;
+  }
+}

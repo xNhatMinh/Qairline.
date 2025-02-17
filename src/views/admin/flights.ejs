@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flights</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link rel="stylesheet" href="/css/admin/adminDashboard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <%- include('./partials/aside.ejs') %>
+      <main>
+        <h1>Flights</h1>
+        <button
+          onclick="window.location.href='/admin/flights/addNewFlight'"
+          type="submit"
+          class="btn btn-edit"
+          style="
+            text-transform: none;
+            width: 20%;
+            color: black;
+            font-size: 15px;
+            font-weight: 550;
+            margin-top: 10px;
+            background-color: #61c7f7;
+          "
+        >
+          Add a new Flight
+        </button>
+        <div class="search-bar">
+          <input type="search" placeholder="Search Data..." />
+        </div>
+        <div class="table_body">
+          <!-- <h2>Customers</h2> -->
+          <table>
+            <thead>
+              <tr>
+                <th style="display: none">Flight ID</th>
+                <th>No</th>
+                <th>Flight Number</th>
+                <th>Airplane Name</th>
+                <th>From</th>
+                <th>Departure</th>
+                <th>To</th>
+                <th>Arrival</th>
+                <th>Gate</th>
+                <th>Available seats</th>
+                <th>Economy</th>
+                <th>Business</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (var i=0; i < flights.length; i++) { %>
+              <tr>
+                <td style="display: none"><%= flights[i].flight_id %></td>
+                <td><%= i + 1 %></td>
+                <td><%= flights[i].flight_name %></td>
+                <td><%= flights[i].airplane_name %></td>
+                <td><%= flights[i].departure_location %></td>
+                <td><%= flights[i].departure_time %></td>
+                <td><%= flights[i].arrival_location %></td>
+                <td><%= flights[i].arrival_time %></td>
+                <td><%= flights[i].gate %></td>
+                <td><%= flights[i].available_seats %></td>
+                <td><%= flights[i].economy_price %>$</td>
+                <td><%= flights[i].business_price %>$</td>
+                <td>
+                  <div class="div-edit">
+                    <form
+                      method="get"
+                      action="/admin/flights/editFlight/<%= flights[i].flight_id %>"
+                    >
+                      <button type="submit" class="btn btn-edit">Edit</button>
+                    </form>
+                  </div>
+                </td>
+                <td>
+                  <div class="div-delete">
+                    <form
+                      method="post"
+                      action="/admin/deleteflight/<%= flights[i].flight_id %>"
+                    >
+                      <input
+                        type="hidden"
+                        name="flight_id"
+                        value="<%= flights[i].flight_id %>"
+                      />
+                      <input
+                        type="hidden"
+                        name="airplane_id"
+                        value="<%= flights[i].airplane_id %>"
+                      />
+                      <button type="submit" class="btn btn-delete">
+                        Delete
+                      </button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </main>
+      <%- include('./partials/right.ejs') %>
+    </div>
+    <script src="/js/admin/search.js"></script>
+  </body>
+</html>

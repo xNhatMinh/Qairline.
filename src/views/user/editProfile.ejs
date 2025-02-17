@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/user/profile.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="master">
+      <div class="wrapper" id="signup">
+        <form id="loginForm" action="/editProfile" method="POST">
+          <h1>Edit Profile</h1>
+          <div class="input-box name-box">
+            <input
+              type="text"
+              id="firstname"
+              name="fname"
+              value="<%= fname %>"
+              placeholder="Fname"
+              required
+            />
+            <input
+              type="text"
+              id="midname"
+              name="mname"
+              value="<%= mname %>"
+              placeholder="Mname"
+              required
+            />
+            <input
+              type="text"
+              id="lastname"
+              name="lname"
+              value="<%= lname %>"
+              placeholder="Lname"
+              required
+            />
+            <i class="bx bxs-user" style="color: black"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="date"
+              id="date_of_birth"
+              name="date_of_birth"
+              value="<%= date_of_birth %>"
+              required
+              style="padding: 20px 30px 20px 20px"
+            />
+          </div>
+          <div class="input-box">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value="<%= email %>"
+              placeholder="Email"
+              required
+            />
+            <i class="bx bxs-envelope" style="color: black"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              value="<%= phone %>"
+              placeholder="Phone"
+              required
+            />
+            <i class="bx bxs-phone" style="color: black"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              id="passport"
+              name="passport"
+              value="<%= passport %>"
+              placeholder="Passport"
+              required
+            />
+            <i class="bx bxs-book" style="color: black"></i>
+          </div>
+          <div class="input-box">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              value="<%= password %>"
+              required
+            />
+            <i class="bx bxs-lock-alt" style="color: black"></i>
+            <button type="submit" class="btn">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="/css/home.css" />
+    <title>Flights | QAirline</title>
+  </head>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="master">
+      <main class="table" id="customers_table">
+        <section class="table__header">
+          <h1>Available Flights</h1>
+          <div class="input-group">
+            <input type="search" placeholder="Search flight" />
+          </div>
+        </section>
+        <section class="table__body">
+          <table>
+            <thead>
+              <tr>
+                <th>Flight Number <span class="icon-arrow">&UpArrow;</span></th>
+                <th>Airplane name <span class="icon-arrow">&UpArrow;</span></th>
+                <th>From <span class="icon-arrow">&UpArrow;</span></th>
+                <th>Departure <span class="icon-arrow">&UpArrow;</span></th>
+                <th>To <span class="icon-arrow">&UpArrow;</span></th>
+                <th>Arrival <span class="icon-arrow">&UpArrow;</span></th>
+                <th>Gate <span class="icon-arrow">&UpArrow;</span></th>
+                <th>
+                  Available seats<span class="icon-arrow">&UpArrow;</span>
+                </th>
+                <th>Economy <span class="icon-arrow">&UpArrow;</span></th>
+                <th>Business <span class="icon-arrow">&UpArrow;</span></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (var i=0; i < flights.length; i++) { %>
+              <tr>
+                <td><%= flights[i].flight_name %></td>
+                <td><%= flights[i].airplane_name %></td>
+                <td><%= flights[i].departure_location %></td>
+                <td><%= flights[i].departure_time %></td>
+                <td><%= flights[i].arrival_location %></td>
+                <td><%= flights[i].arrival_time %></td>
+                <td><%= flights[i].gate %></td>
+                <td><%= flights[i].available_seats %></td>
+                <td><%= flights[i].economy_price %>$</td>
+                <td><%= flights[i].business_price %>$</td>
+                <td>
+                  <!-- <form action="/bookFlight" method="GET">
+                    <a href="/bookFlight">
+                      <button class="btn-signin" id="book" type="submit">
+                        Book Now
+                      </button>
+                    </a>
+                  </form> -->
+                  <a href="/bookFlight?flight_id=<%= flights[i].flight_id %>">
+                    <button class="btn-signin" id="book" type="submit">
+                      Book Now
+                    </button>
+                  </a>
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    <%- include('./partials/footer.ejs') %>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/js/user/viewFlights.js"></script>
+  </body>
+</html>

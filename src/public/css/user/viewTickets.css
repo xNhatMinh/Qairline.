@@ -1,0 +1,138 @@
+.master {
+  min-height: 100vh;
+  background: url(/images/dashboard.jpg) center / cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.container {
+  width: 70%;
+  margin: auto;
+  overflow: hidden;
+  background: #ddd;
+  font-family: "Inknut Antiqua", serif;
+  font-family: "Ravi Prakash", cursive;
+  font-family: "Lora", serif;
+  font-family: "Indie Flower", cursive;
+  font-family: "Cabin", sans-serif;
+}
+.upcomming {
+  font-size: 45px;
+  border-left: 14px solid rgba(255, 235, 59, 0.78);
+  padding-left: 12px;
+  margin: 18px 8px;
+}
+.container .item {
+  width: 96%;
+  float: left;
+  padding: 0 10px;
+  background: #fff;
+  overflow: hidden;
+  margin: 10px;
+}
+.container .item-right,
+.container .item-left {
+  float: left;
+  padding: 25px;
+}
+.container .item-right {
+  background-image: url(/images/barcode.jpg);
+  padding: 60px 50px;
+  margin-right: 20.5px;
+  width: 15%;
+  height: 270px;
+  position: relative;
+}
+.container .item-right .up-border,
+.container .item-right .down-border {
+  padding: 14px 15px;
+  background-color: #ddd;
+  border-radius: 50%;
+  position: absolute;
+}
+.container .item-right .up-border {
+  top: -8px;
+  right: -35px;
+}
+.container .item-right .down-border {
+  bottom: -13px;
+  right: -35px;
+}
+.container .item-right .num {
+  font-size: 60px;
+  text-align: center;
+  color: #111;
+}
+.container .item-right .day,
+.container .item-left .event {
+  color: #555;
+  font-size: 20px;
+  margin-bottom: 9px;
+}
+.container .item-right .day {
+  text-align: center;
+  font-size: 25px;
+}
+.container .item-left {
+  width: 80%;
+  padding: 34px 0px 19px 46px;
+  border-left: 3px dotted #999;
+}
+.container .item-left .title {
+  color: #111;
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+.container .item-left .sce {
+  margin-top: 5px;
+  display: block;
+}
+.container .item-left .sce .icon,
+.container .item-left .sce p,
+.container .item-left .loc .icon,
+.container .item-left .loc p {
+  float: left;
+  word-spacing: 5px;
+  letter-spacing: 1px;
+  color: #888;
+  margin-bottom: 10px;
+}
+.container .item-left .sce .icon,
+.container .item-left .loc .icon {
+  margin-right: 10px;
+  font-size: 20px;
+  color: #666;
+}
+.container .item-left .loc {
+  display: block;
+}
+.fix {
+  clear: both;
+}
+.container .item .cancel-btn {
+  color: #fff;
+  padding: 6px 14px;
+  float: right;
+  margin-top: 10px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+.container .item .cancel-btn {
+  text-decoration: none;
+  border-radius: 10px;
+  background: #8f1f1f;
+}
+.linethrough {
+  text-decoration: line-through;
+}
+@media only screen and (max-width: 1150px) {
+  .container .item {
+    width: 100%;
+    margin-right: 20px;
+  }
+  div.container {
+    margin: 0 20px auto;
+  }
+}

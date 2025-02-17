@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cabin|Indie+Flower|Inknut+Antiqua|Lora|Ravi+Prakash"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/user/viewTickets.css" />
+    <title>Tickets | QAirline</title>
+  </head>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="master">
+      <div class="container">
+        <h1 class="upcomming">Your Tickets</h1>
+        <% for (var i = 0; i < tickets.length; i++) { %>
+        <div class="item">
+          <div class="item-right">
+            <span class="up-border"></span>
+            <span class="down-border"></span>
+          </div>
+          <!-- end item-right -->
+
+          <div class="item-left">
+            <h2 class="title"><%= tickets[i].Flight.flight_name%></h2>
+            <p class="event">Gate: <%= tickets[i].Flight.gate %></p>
+            <div class="sce">
+              <div class="icon">
+                <i class="fa fa-table"></i>
+              </div>
+              <p>
+                Departure: <%= tickets[i].departure_time %> <br />
+                Arrival: <%= tickets[i].arrival_time %>
+              </p>
+              <div class="icon" style="margin-left: 50px">
+                <i class="fa fa-chair"></i>
+              </div>
+              <p>
+                Seat: <%= tickets[i].Seat.seat_number %> <br />
+                Class: <%= tickets[i].Seat.seat_class %>
+              </p>
+              <div class="icon" style="margin-left: 30px">
+                <i class="fa fa-user-circle"></i>
+              </div>
+              <p>
+                Passenger: <%= tickets[i].Client.fname %> <%=
+                tickets[i].Client.lname %> <%= tickets[i].Client.mname %><br />
+                Email: <%= tickets[i].Client.email %>
+              </p>
+            </div>
+            <div class="fix"></div>
+            <div class="loc">
+              <div class="icon">
+                <i class="fa fa-map-marker"></i>
+              </div>
+              <p>
+                From: <%= tickets[i].Flight.departure_location %><br />
+                To: <%= tickets[i].Flight.arrival_location %>
+              </p>
+              <div class="icon" style="margin-left: 155px">
+                <p style="font-size: 20px; margin-top: 10px">
+                  <%= tickets[i].Flight.departure_location %>
+                  <i class="fa fa-plane"></i>
+                  <%= tickets[i].Flight.arrival_location %>
+                </p>
+              </div>
+            </div>
+            <div class="fix"></div>
+            <form action="/yourTickets" method="POST" class="cancel-form">
+              <input
+                type="hidden"
+                name="booking_id"
+                value="<%= tickets[i].booking_id %>"
+              />
+              <button type="submit" class="cancel-btn">Cancel</button>
+            </form>
+          </div>
+          <!-- end item-right -->
+        </div>
+        <% } %>
+        <!-- end item -->
+      </div>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

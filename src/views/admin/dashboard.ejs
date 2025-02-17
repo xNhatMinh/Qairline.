@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link rel="stylesheet" href="/css/admin/adminDashboard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <%- include('./partials/aside.ejs') %>
+      <main>
+        <h1>Dashboard</h1>
+
+        <div class="insights">
+          <div class="clients">
+            <span class="material-symbols-sharp">person</span>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Clients</h3>
+                <h1><%= totalClients %> Clients</h1>
+              </div>
+              <div class="progress">
+                <svg>
+                  <circle r="30" cy="40" cx="40"></circle>
+                </svg>
+                <div class="number"><p>100%</p></div>
+              </div>
+            </div>
+            <small>Last 24 Hours</small>
+          </div>
+          <div class="flights">
+            <span class="material-symbols-sharp">flight</span>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Flights</h3>
+                <h1><%= totalFlights %> Flights</h1>
+              </div>
+              <div class="progress">
+                <svg>
+                  <circle r="30" cy="40" cx="40"></circle>
+                </svg>
+                <div class="number"><p><%= percentageFlights %>%</p></div>
+              </div>
+            </div>
+            <small>Last 24 Hours</small>
+          </div>
+          <div class="bookings">
+            <span class="material-symbols-sharp">airplane_ticket</span>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Income</h3>
+                <h1>$<%= totalIncome %></h1>
+              </div>
+              <div class="progress">
+                <svg>
+                  <circle r="30" cy="40" cx="40"></circle>
+                </svg>
+                <div class="number"><p>100%</p></div>
+              </div>
+            </div>
+            <small>Last 24 Hours</small>
+          </div>
+        </div>
+        <div class="table_body">
+          <table>
+            <thead>
+              <tr>
+                <th>Top Customers</th>
+                <th>Total Flights</th>
+                <th>Payments</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (var i=0; i < topCustomers.length; i++) { %>
+              <tr>
+                <td><%= topCustomers[i].clientName %></td>
+                <td><%= topCustomers[i].totalFlights %></td>
+                <td>$<%= topCustomers[i].totalPayments %></td>
+                <td>
+                  <!-- <a href="/admin/bookings/<%= topCustomers[i].clientId %>">
+                    <span class="material-symbols-sharp">info</span>
+                  </a> -->
+                  <div class="div-edit">
+                    <form
+                      method="get"
+                      action="/admin/bookings/<%= topCustomers[i].clientId %>"
+                    >
+                      <button type="submit" class="btn btn-edit">
+                        Details
+                      </button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </main>
+
+      <%- include('./partials/right.ejs') %>
+    </div>
+  </body>
+</html>

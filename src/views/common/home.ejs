@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="/css/home.css" />
+    <title>QAirline</title>
+  </head>
+  <body>
+    <!-- <% const currentTab="home" ; %> -->
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="#">
+            <img src="/images/logo.jpg" alt="logo" class="img_logo" />
+          </a>
+          <a href="#" class="logo">Q<span>Airline</span></a>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#service">Services</a></li>
+        <li><a href="#destination">Destinations</a></li>
+        <li><a href="#package">Packages</a></li>
+        <li><a href="#client">Clients</a></li>
+        <a href="/login">
+          <button class="btn-signin" id="signinBtn">Sign In</button>
+        </a>
+      </ul>
+    </nav>
+
+    <header class="header" id="home">
+      <div class="section__container header__container">
+        <h1>
+          FLY WITH<br /><span style="color: #0376c1">Q</span
+          ><span>Airline.</span>
+        </h1>
+        <p>Pack your bags and go</p>
+      </div>
+    </header>
+
+    <section class="section__container feature__container" id="service">
+      <div class="feature__card">
+        <img src="/images/feature-1.png" alt="feature" />
+        <div>
+          <h4>Best Destinations</h4>
+          <p>Discover the most breathtaking places around the globe.</p>
+        </div>
+      </div>
+      <div class="feature__card">
+        <img src="/images/feature-2.png" alt="feature" />
+        <div>
+          <h4>Best Price Guaranteed</h4>
+          <p>Enjoy unbeatable prices on every trip you book.</p>
+        </div>
+      </div>
+      <div class="feature__card">
+        <img src="/images/feature-3.png" alt="feature" />
+        <div>
+          <h4>Instant Booking</h4>
+          <p>Secure your dream vacation with just a click.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="destination" id="destination">
+      <div class="section__container destination__container">
+        <h2 class="section__header">Top Destinations</h2>
+        <p class="section__description">
+          Find out what are the best destinations in the world
+        </p>
+        <div class="destination__grid">
+          <div class="destination__card">
+            <img src="/images/destination-1.jpg" alt="destination" />
+            <div class="destination__content">HaNoi</div>
+          </div>
+          <div class="destination__card">
+            <img src="/images/destination-2.jpg" alt="destination" />
+            <div class="destination__content">HoChiMinh</div>
+          </div>
+          <div class="destination__card">
+            <img src="/images/destination-3.jpg" alt="destination" />
+            <div class="destination__content">DaNang</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container client__container" id="client">
+      <h2 class="section__header">Client Reviews</h2>
+      <p class="section__description">
+        We have many happy customers who booked flights with us
+      </p>
+      <!-- Slider main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="client__card">
+              <img src="/images/client-2.jpg" alt="client" />
+              <span><i class="ri-double-quotes-l"></i></span>
+              <p>
+                QAirline made my vacation planning effortless and enjoyable.
+                Their best price guarantee really delivered!
+              </p>
+              <h4>Sarah Johnson</h4>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="client__card">
+              <img src="/images/client-3.jpg" alt="client" />
+              <span><i class="ri-double-quotes-l"></i></span>
+              <p>
+                QAirline offers an unbeatable combination of great prices and
+                top customer service. Highly recommended!
+              </p>
+              <h4>David Martinez</h4>
+              <h5>Financial Analyst</h5>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="client__card">
+              <img src="/images/client-4.jpg" alt="client" />
+              <span><i class="ri-double-quotes-l"></i></span>
+              <p>
+                Booking with QAirline was a breeze. Their user-friendly
+                interface and instant confirmation saved me so much time.
+              </p>
+              <h4>Olivia Brown</h4>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="client__card">
+              <img src="/images/client-5.jpg" alt="client" />
+              <span><i class="ri-double-quotes-l"></i></span>
+              <p>
+                From booking to travel, every step was seamless. QAirline truly
+                makes travel dreams come true!
+              </p>
+              <h4>James Wilson</h4>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="footer__logo">
+            <a href="#" class="logo">Q<span>Airline</span></a>
+          </div>
+          <p>
+            With QAirline explore top destinations, enjoy great prices and book
+            your dream trip with ease.
+          </p>
+          <h4>CONNECT WITH US</h4>
+          <ul class="footer__socials">
+            <li>
+              <a href="https://www.facebook.com/dinhnhatminh04/"
+                ><i class="ri-facebook-fill"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/"
+                ><i class="ri-youtube-fill"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.tiktok.com/"
+                ><i class="ri-tiktok-fill"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>QUICK LINKS</h4>
+          <ul class="footer__links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blogs</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>DESTINATIONS</h4>
+          <ul class="footer__links">
+            <li>
+              <a href="#">Ha Noi</a>
+            </li>
+            <li><a href="#">Ho Chi Minh</a></li>
+            <li><a href="#">Da Nang</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>OUR SERVICES</h4>
+          <ul class="footer__links">
+            <li><a href="#">Food</a></li>
+            <li><a href="#">Singing</a></li>
+            <li><a href="#">Television</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bar">Copyright © UET DINH NHAT MINH K67-N-CLC .</div>
+    </footer>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/js/home.js"></script>
+  </body>
+</html>

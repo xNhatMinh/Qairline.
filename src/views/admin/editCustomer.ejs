@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>editCustomer</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link rel="stylesheet" href="/css/admin/adminDashboard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <%- include('./partials/aside.ejs') %>
+      <main>
+        <h1>Edit customer</h1>
+        <h2 style="margin-top: 1rem">
+          You are editing a customer with id <%= client_id %>
+        </h2>
+        <div class="master">
+          <main class="container1">
+            <form
+              action="/admin/customers/editCustomer/<%= client_id %>/"
+              class="form"
+              method="POST"
+            >
+              <div class="column">
+                <div class="input-box">
+                  <label>First name</label>
+                  <input
+                    type="text"
+                    name="fname"
+                    value="<%= fname %>"
+                    required
+                  />
+                </div>
+                <div class="input-box">
+                  <label>Middle name</label>
+                  <input
+                    type="text"
+                    name="mname"
+                    value="<%= mname %>"
+                    required
+                  />
+                </div>
+                <div class="input-box">
+                  <label>Middle name</label>
+                  <input
+                    type="text"
+                    name="lname"
+                    value="<%= lname %>"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="column">
+                <div class="input-box">
+                  <label>Date of birth</label>
+                  <input
+                    type="date"
+                    name="date_of_birth"
+                    value="<%= date_of_birth %>"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="column">
+                <div style="display: none" class="input-box">
+                  <label>Client ID</label>
+                  <input
+                    type="text"
+                    name="client_id"
+                    value="<%= client_id %>"
+                    required
+                  />
+                </div>
+                <div class="input-box">
+                  <label>Phone number</label>
+                  <input
+                    type="text"
+                    name="phone"
+                    value="<%= phone %>"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="column">
+                <div class="input-box">
+                  <label>Email</label>
+                  <input
+                    type="text"
+                    name="email"
+                    value="<%= email %>"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="column">
+                <div class="input-box">
+                  <label>Passport</label>
+                  <input
+                    type="text"
+                    name="passport"
+                    value="<%= passport %>"
+                    readonly
+                    required
+                  />
+                </div>
+              </div>
+              <button type="submit">Save</button>
+            </form>
+          </main>
+        </div>
+      </main>
+
+      <%- include('./partials/right.ejs') %>
+    </div>
+  </body>
+</html>

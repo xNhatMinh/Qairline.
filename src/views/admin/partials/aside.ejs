@@ -1,0 +1,70 @@
+<aside>
+  <div class="top">
+    <div class="logo">
+      <h2>Q<span class="danger">Airline</span></h2>
+    </div>
+    <div class="close" id="close_btn">
+      <span class="material-symbols-sharp">close</span>
+    </div>
+  </div>
+  <div class="sidebar">
+    <a href="/admin/dashboard">
+      <span class="material-symbols-sharp">grid_view</span>
+      <h3>Dashboard</h3>
+    </a>
+    <a href="/admin/customers">
+      <span class="material-symbols-sharp">person_outline</span>
+      <h3>Customers</h3>
+    </a>
+    <a href="/admin/bookings">
+      <span class="material-symbols-sharp">airplane_ticket</span>
+      <h3>Bookings</h3>
+    </a>
+    <a href="/admin/flights">
+      <span class="material-symbols-sharp">flight</span>
+      <h3>Flights</h3>
+    </a>
+    <a href="/admin/airplanes">
+      <span class="material-symbols-sharp">flight_takeoff</span>
+      <h3>Airplanes</h3>
+    </a>
+    <form action="/admin/logout" method="POST">
+      <button type="submit">
+        <a href="#" id="logoutLink">
+          <span class="material-symbols-sharp">logout</span>
+          <h3>Logout</h3>
+        </a>
+      </button>
+    </form>
+  </div>
+</aside>
+
+<script>
+  const sidebarLinks = document.querySelectorAll(".sidebar a");
+
+  // Lấy URL hiện tại
+  const currentPath = window.location.pathname;
+
+  // Đặt class "active" cho thẻ <a> phù hợp
+  sidebarLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+
+    // Adjust this condition to match exactly or handle trailing slashes
+    if (
+      currentPath === href ||
+      currentPath === href + "/" ||
+      (href !== "/" && currentPath.startsWith(href + "/"))
+    ) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+
+  // Đóng sidebar khi nhấn vào nút close
+  const closeBtn = document.getElementById("close_btn");
+  const sidebar = document.querySelector(".sidebar");
+  closeBtn.addEventListener("click", function () {
+    sidebar.classList.toggle("active");
+  });
+</script>

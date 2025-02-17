@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/user/bookFlight.css" />
+    <link rel="stylesheet" href="/css/user/cabin.css" />
+  </head>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="master">
+      <main class="container">
+        <header>Flight Reservation</header>
+        <form action="/bookFlight" class="form" method="POST">
+          <div class="column">
+            <div style="display: none" class="input-box">
+              <label>Flight Number</label>
+              <input
+                type="text"
+                name="flight_id"
+                value="<%= flight.flight_id %>"
+                placeholder="<%= flight.flight_number %>"
+                readonly
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label>Flight Number</label>
+              <input
+                type="text"
+                value="<%= flight.flight_name %>"
+                readonly
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label>Gate</label>
+              <input type="text" value="<%= flight.gate %>" readonly required />
+            </div>
+          </div>
+          <div class="column">
+            <div class="input-box">
+              <label>Total Seats</label>
+              <input
+                type="text"
+                value="<%= flight.total_seats %>"
+                readonly
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label>Available Seats</label>
+              <input
+                type="text"
+                value="<%= flight.available_seats %>"
+                readonly
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label for="availableSeats">Choose a seat</label>
+              <div class="select-box">
+                <select name="seat_id" id="availableSeats" required>
+                  <option value="" disabled selected>Select a seat</option>
+                  <% for (var i=0; i < seats.length; i++) { %>
+                  <!--Thêm điều kiện seats[i].is_booked == true thì không hiển thị -->
+                  <% if (seats[i].is_booked == false) { %>
+                  <option value="<%= seats[i].seat_id %>">
+                    <%= seats[i].seat_number %> - <%= seats[i].seat_class %>
+                  </option>
+                  <% } %> <% } %>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="input-box">
+              <label>Departure Location</label>
+              <input
+                type="text"
+                value="<%= flight.departure_location %>"
+                readonly
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label>Departure Time</label>
+              <input
+                type="text"
+                value="<%= flight.departure_time %>"
+                readonly
+                required
+              />
+            </div>
+          </div>
+          <div class="column">
+            <div class="input-box">
+              <label>Arrival Location</label>
+              <input
+                type="text"
+                value="<%= flight.arrival_location %>"
+                readonly
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label>Arrival Time</label>
+              <input
+                type="text"
+                value="<%= flight.arrival_time %>"
+                readonly
+                required
+              />
+            </div>
+          </div>
+          <div class="column">
+            <div class="input-box">
+              <label>Economy</label>
+              <input
+                type="text"
+                value="<%= flight.economy_price %> $"
+                readonly
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label>Business</label>
+              <input
+                type="text"
+                value="<%= flight.business_price %> $"
+                readonly
+                required
+              />
+            </div>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </main>
+      <main class="container" style="width: 30vw">
+        <header>Aircraft Cabin</header>
+        <div class="plane">
+          <div class="cockpit">
+            <h3>Economy</h3>
+          </div>
+          <div class="exit exit--front fuselage"></div>
+          <ol class="cabin fuselage">
+            <% let currentRow = ''; %>
+            <% 
+              // Lọc ghế chỉ thuộc loại Economy
+              const economySeats = seats.filter(seat => seat.seat_class === "Economy"); 
+            %>
+            <% economySeats.forEach(function(seat, index) { %>
+              <% 
+                let seatRow = seat.seat_number.charAt(0);
+              %>
+          
+              <% if (seatRow !== currentRow) { %>
+                <% if (currentRow !== '') { %>
+                  <!-- Đóng ol của hàng trước -->
+                </ol></li>
+                <% } %>
+          
+                <!-- Mở li cho hàng mới và ol cho các ghế trong hàng -->
+                <li class="row row--<%= seatRow %>">
+                  <ol class="seats" type="A">
+                  <% 
+                    currentRow = seatRow; // Cập nhật hàng hiện tại
+                  } 
+                %>
+          
+                <!-- Hiển thị mỗi ghế -->
+                <li class="seat <%= seat.is_booked ? 'booked' : '' %>">
+                  <input type="checkbox" id="<%= seat.seat_number %>" <%= seat.is_booked ? 'disabled' : '' %> />
+                  <label for="<%= seat.seat_number %>"><%= seat.seat_number %></label>
+                </li>
+          
+            <% }); %>
+          
+            <!-- Đóng ol và li cho hàng cuối cùng -->
+            </ol></li>
+          </ol>
+          
+          <div class="exit exit--back fuselage"></div>
+        </div>
+        
+        <div class="plane">
+          <div class="cockpit">
+            <h3>Business</h3>
+          </div>
+          <div class="exit exit--front fuselage"></div>
+          <ol class="cabin fuselage">
+            <% let currentRow1 = ''; %>
+            <% 
+              // Lọc ghế chỉ thuộc loại Business
+              const businessSeats = seats.filter(seat => seat.seat_class === "Business"); 
+            %>
+            <% businessSeats.forEach(function(seat, index) { %>
+              <% 
+                let seatRow = seat.seat_number.charAt(0);
+              %>
+          
+              <% if (seatRow !== currentRow1) { %>
+                <% if (currentRow1 !== '') { %>
+                  <!-- Đóng ol của hàng trước -->
+                </ol></li>
+                <% } %>
+          
+                <!-- Mở li cho hàng mới và ol cho các ghế trong hàng -->
+                <li class="row row--<%= seatRow %>">
+                  <ol class="seats" type="A">
+                  <% 
+                    currentRow1 = seatRow; // Cập nhật hàng hiện tại
+                  } 
+                %>
+          
+                <!-- Hiển thị mỗi ghế -->
+                <li class="seat <%= seat.is_booked ? 'booked' : '' %>">
+                  <input type="checkbox" id="<%= seat.seat_number %>" <%= seat.is_booked ? 'disabled' : '' %> />
+                  <label for="<%= seat.seat_number %>"><%= seat.seat_number %></label>
+                </li>
+          
+            <% }); %>
+          
+            <!-- Đóng ol và li cho hàng cuối cùng -->
+            </ol></li>
+          </ol>
+          
+          <div class="exit exit--back fuselage"></div>
+        </div>
+      </main>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

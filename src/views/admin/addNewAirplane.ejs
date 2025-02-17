@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>editAirplane</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link rel="stylesheet" href="/css/admin/adminDashboard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <%- include('./partials/aside.ejs') %>
+      <main>
+        <h1>Add an airplane</h1>
+        <div class="master">
+          <main class="container1">
+            <form
+              action="/admin/airplanes/addNewAirplane"
+              class="form"
+              method="POST"
+            >
+              <div class="column">
+                <div class="input-box">
+                  <label>Airplane name</label>
+                  <input type="text" name="airplane_name" value="" required />
+                </div>
+              </div>
+              <div class="column">
+                <div class="input-box">
+                  <label>Manufacturer</label>
+                  <input type="text" name="manufacturer" value="" required />
+                </div>
+              </div>
+              <div class="column">
+                <div class="input-box">
+                  <label>Jet engine</label>
+                  <input type="text" name="jet_engine" value="" required />
+                </div>
+              </div>
+              <div class="column">
+                <div class="input-box">
+                  <label>Wheels</label>
+                  <input type="text" name="wheels" value="" required />
+                </div>
+              </div>
+              <div class="column">
+                <div class="input-box">
+                  <label>Fuselage</label>
+                  <input type="text" name="fuselage" value="" required />
+                </div>
+              </div>
+              <div class="column">
+                <div class="input-box">
+                  <label>Wing</label>
+                  <input type="text" name="wing" value="" required />
+                </div>
+              </div>
+              <button type="submit">Save</button>
+            </form>
+          </main>
+        </div>
+      </main>
+
+      <%- include('./partials/right.ejs') %>
+    </div>
+  </body>
+</html>

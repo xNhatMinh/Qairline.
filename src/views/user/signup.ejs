@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/admin/signin.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <!-- signup Form -->
+    <div style="height: 780px;"class="wrapper" id="signup">
+      <form id="loginForm" action="/signup" method="post">
+        <h1>Sign Up</h1>
+        <div class="input-box name-box">
+          <input
+            type="text"
+            id="firstname"
+            name="firstname"
+            placeholder="Fname"
+            required
+          />
+          <input
+            type="text"
+            id="midname"
+            name="midname"
+            placeholder="Mname"
+            required
+          />
+          <input
+            type="text"
+            id="lastname"
+            name="lastname"
+            placeholder="Lname"
+            required
+          />
+          <i class="bx bxs-user" style="color: black;"></i>
+        </div>
+        <div class="input-box">
+          <input
+            type="date"
+            id="date_of_birth"
+            name="date_of_birth"
+            required
+            style="padding: 20px 30px 20px 20px"
+          />
+        </div>
+        <div class="input-box">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <i class="bx bxs-lock-alt" style="color: black;"></i>
+        </div>
+        <div class="input-box">
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            required
+          />
+          <i class="bx bxs-lock-alt" style="color: black;"></i>
+        </div>
+        <div class="input-box">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+          <i class="bx bxs-envelope" style="color: black;"></i>
+        </div>
+        <div class="input-box">
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            placeholder="Phone"
+            required
+          />
+          <i class="bx bxs-phone" style="color: black;"></i>
+        </div>
+        <div class="input-box">
+          <input
+            type="text"
+            id="passport"
+            name="passport"
+            placeholder="Passport"
+            required
+          />
+          <i class="bx bxs-book" style="color: black;"></i>
+        <button type="submit" class="btn">Sign Up</button>
+        <div class="login-link">
+          <p>Do have an account? <a href="/login">Login</a></p>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
